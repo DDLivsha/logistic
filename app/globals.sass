@@ -1,4 +1,53 @@
 @import "tailwindcss"
-
 @import "../style/reset.sass"
+
+body
+   font-family: PT Sans, sans-serif
+   font-size: 15px
+   color: #585858
+   line-height: 140%
+   overflow-x: hidden
+
+.container
+   margin: 0 auto
+   max-width: 1230px
+   width: 100%
+   padding: 0 15px
+
+.button
+   display: inline-block
+   border-radius: 5px
+   background: linear-gradient(90deg, #ff903e 0%, #ff2c2c 100%)
+   color: #fff
+   font-family: PT Sans
+   font-size: 18px
+   font-weight: bold
+   line-height: normal
+   text-align: center
+   padding: 11px 45px
+   box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2)
+   transition: all 0.3s
+   &:hover
+      transform: scale(1.05)
+
+.title
+   color: #2c2c2c
+   font-family: Lato
+   font-size: 45px
+   font-style: normal
+   font-weight: 900
+   line-height: normal
+   & span
+      color: #004af2
+
 @import "../style/fonts.sass"
+@import "../style/header.sass"
+@import "../style/intro.sass"
+@import "../style/service.sass"
+@import "../style/clients.sass"
+@import "../style/benefits.sass"
+@import "../style/team.sass"
+@import "../style/mission.sass"
+@import "../style/news.sass"
+@import "../style/footer.sass"
+@import "../style/breakpoints.sass"
