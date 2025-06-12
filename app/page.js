@@ -7,6 +7,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import Footer from "@/components/Footer";
 
 //====================== SLIDER ======================
 const clientsData = [
@@ -81,14 +82,30 @@ export default function Home() {
       },
 
    ])
-
+   //====================== CLIENTS DATA ======================
+   const [clients, setClients] = useState([
+      { img: 'images/logos/atica.svg' },
+      { img: 'images/logos/hex-lab-1.svg' },
+      { img: 'images/logos/amara.svg' },
+      { img: 'images/logos/muzica-2.svg' },
+      { img: 'images/logos/solaytic.svg' },
+      { img: 'images/logos/hexa.svg' },
+      { img: 'images/logos/utosia-2.svg' },
+      { img: 'images/logos/fox-hub.svg' },
+   ])
+   //====================== BENEFITS DATA ======================
+   const [benefits, setBenefits] = useState([
+      { title: 'Safety' },
+      { title: 'High quality drivers' },
+      { title: 'Guarantee & Support 24/7' },
+      { title: 'Personal manager' },
+   ])
 
    return (
       <>
          <Header />
          <main className="main">
             <Intro />
-
             <section
                className="main__service service"
                id="service"
@@ -96,7 +113,7 @@ export default function Home() {
                <div className="container">
                   <div className="service__inner">
                      {services.map((item, key) => (
-                        <div key={key} className="service__content-block" data-aos="flip-down" data-aos-delay="50">
+                        <div key={key} className="service__content-block">
                            <h3 className="service__title">{item.title}</h3>
                            <p className="service__text">{item.text}</p>
                            <div className="service__link-wrapper w-[100px]">
@@ -115,46 +132,13 @@ export default function Home() {
                   <h2 className="clients__title title" data-aos="fade-down"><span>Our</span> Clients</h2>
                   <div className="clients__inner">
                      <ul className="clients__logos-list">
-                        <li className="clients__list-item" data-aos="flip-down" data-aos-delay="50">
-                           <a href="#" target="_blank" className="clients__list-link">
-                              <img src="images/logos/atica.svg" alt="logo" className="clients__img" />
-                           </a>
-                        </li>
-                        <li className="clients__list-item" data-aos="flip-down" data-aos-delay="50">
-                           <a href="#" target="_blank" className="clients__list-link">
-                              <img src="images/logos/hex-lab-1.svg  " alt="logo" className="clients__img" />
-                           </a>
-                        </li>
-                        <li className="clients__list-item" data-aos="flip-down" data-aos-delay="50">
-                           <a href="#" target="_blank" className="clients__list-link">
-                              <img src="images/logos/amara.svg" alt="logo" className="clients__img" />
-                           </a>
-                        </li>
-                        <li className="clients__list-item" data-aos="flip-down" data-aos-delay="200">
-                           <a href="#" target="_blank" className="clients__list-link">
-                              <img src="images/logos/muzica-2.svg" alt="logo" className="clients__img" />
-                           </a>
-                        </li>
-                        <li className="clients__list-item" data-aos="flip-down" data-aos-delay="200">
-                           <a href="#" target="_blank" className="clients__list-link">
-                              <img src="images/logos/solaytic.svg" alt="logo" className="clients__img" />
-                           </a>
-                        </li>
-                        <li className="clients__list-item" data-aos="flip-down" data-aos-delay="200">
-                           <a href="#" target="_blank" className="clients__list-link">
-                              <img src="images/logos/hexa.svg" alt="logo" className="clients__img" />
-                           </a>
-                        </li>
-                        <li className="clients__list-item" data-aos="flip-down" data-aos-delay="300">
-                           <a href="#" target="_blank" className="clients__list-link">
-                              <img src="images/logos/utosia-2.svg" alt="logo" className="clients__img" />
-                           </a>
-                        </li>
-                        <li className="clients__list-item" data-aos="flip-down" data-aos-delay="300">
-                           <a href="#" target="_blank" className="clients__list-link">
-                              <img src="images/logos/fox-hub.svg" alt="logo" className="clients__img" />
-                           </a>
-                        </li>
+                        {clients.map((item, key) => (
+                           <li key={key} className="clients__list-item">
+                              <a href="#" target="_blank" className="clients__list-link">
+                                 <img src={item.img} alt="logo" className="clients__img" />
+                              </a>
+                           </li>
+                        ))}
                      </ul>
 
                      <div className="clients__slider">
@@ -169,7 +153,7 @@ export default function Home() {
 
                         >
                            {clientsData.map((client, index) => (
-                              <SwiperSlide key={index}>
+                              <SwiperSlide key={index} className="!mb-6">
                                  <div className="clients__slide">
                                     <div className="clients__slide-header">
                                        <div className="clients__img-box">
@@ -186,7 +170,7 @@ export default function Home() {
                                     </div>
                                     <div className="slider__content">
                                        {client.content.map((text, i) => (
-                                          <p key={i} className="slider__content-text">
+                                          <p key={i} className="mb-2">
                                              {text}
                                           </p>
                                        ))}
@@ -211,26 +195,13 @@ export default function Home() {
                   <div className="benefits__inner">
                      <div className="benefits__content">
                         <ul className="benefits__list">
-                           <li className="benefits__list-item" data-aos="flip-down" data-aos-delay="50">
-                              <h4 className="benefits__list-title">Safety</h4>
-                              <p className="benefits__list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                                 nonumy eirmod tempor </p>
-                           </li>
-                           <li className="benefits__list-item" data-aos="flip-down" data-aos-delay="100">
-                              <h4 className="benefits__list-title">High quality drivers</h4>
-                              <p className="benefits__list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                                 nonumy eirmod tempor </p>
-                           </li>
-                           <li className="benefits__list-item" data-aos="flip-down" data-aos-delay="150">
-                              <h4 className="benefits__list-title">Guarantee & Support 24/7</h4>
-                              <p className="benefits__list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                                 nonumy eirmod tempor </p>
-                           </li>
-                           <li className="benefits__list-item" data-aos="flip-down">
-                              <h4 className="benefits__list-title">Personal manager</h4>
-                              <p className="benefits__list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                                 nonumy eirmod tempor </p>
-                           </li>
+                           {benefits.map((item, key) => (
+                              <li key={key} className="benefits__list-item">
+                                 <h4 className="benefits__list-title">{item.title}</h4>
+                                 <p className="benefits__list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                                    nonumy eirmod tempor </p>
+                              </li>
+                           ))}
                         </ul>
                      </div>
                      <div className="benefits__img-box" data-aos="fade-left" data-aos-delay="200">
@@ -276,14 +247,13 @@ export default function Home() {
                            international</h3>
                         <p className="mission__inner-subtitle">Book your Cargo now & Your job just got a lot easier</p>
                         <div className="mission__lines">
-                           <div className="mission__blue-line" data-aos="fade-left" data-aos-delay="200"></div>
-                           <div className="mission__orange-line" data-aos="fade-right" data-aos-delay="200"></div>
+                           <div className="mission__blue-line"></div>
+                           <div className="mission__orange-line"></div>
                         </div>
                      </div>
                   </div>
                   <div className="mission__button-wrapper">
-                     <a href="#" target="_blank" className="mission__button button" data-modal="#BecomeCLientModal"
-                        data-aos="fade-up">Become a client</a>
+                     <a href="#" target="_blank" className="mission__button button">Become a client</a>
                   </div>
                </div>
             </section>
@@ -326,25 +296,8 @@ export default function Home() {
                   <a href="news.html" className="news__button button" data-aos="fade-up">Visit blog</a>
                </div>
             </section>
-
          </main>
-
-         <footer className="footer">
-            <div className="footer__content">
-               <a href="index.html" className="footer__logo">
-                  <img src="images/logo-black.svg" alt="CenterLogistic" className="footer__logo-img" />
-               </a>
-               <h6 className="footer__info">New York, Street, ZIP code</h6>
-               <h6 className="footer__info">Call Us: <a href="tel:9948373123" className="footer__info-link">+9948373123</a> or E-mail:
-                  <a href="mailto:hello@centerlogistic.com" className="footer__info-link">hello@centerlogistic.com</a>
-               </h6>
-               <nav className="footer__nav">
-                  <a href="#" className="footer__nav-item">Terms & Contidions</a>
-                  <a href="privacy.html" className="footer__nav-item">Privacy Policy</a>
-                  <a href="news.html" className="footer__nav-item">Our blog</a>
-               </nav>
-            </div>
-         </footer>
+         <Footer />
       </>
    );
 }
